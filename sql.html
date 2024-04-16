@@ -1,0 +1,809 @@
+
+
+<html>
+
+<head>
+    <title>SQL Tutorial</title>
+</head>
+
+<body>
+<p><center> <b>INDEX</b></center></p>
+<! cellspacing>
+<table border="2" cellpadding="1">
+<thead>
+<tr> <th>Serial</th><th>CategoryName</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>SQL Basic Code</td></tr>
+<tr><td>2</td><td>All SQL Basic Query</td></tr>
+<tr><td>3</td><td>OPEN REPORT QUERY</td></tr>
+<tr><td>4</td><td>BOSS QUERY</td></tr>
+<tr><td>5</td><td>MY QUERY</td></tr>
+<tr><td>6</td><td>Calander</td></tr>
+
+
+</tbody>
+</table>
+<!-------###########################   1   #############################------------>    
+<div class="code">
+<h1> 1. SQL Basic Code </h1>
+        <xmp>
+
+1. SELECT  * FROM Customers
+
+2. SELECT CustomerName, City FROM Customers
+
+3. select top (10)d.code, d.name from doctorcall dc, doctor d
+where dc.calldate between '01-jan-2022' and '31-jan-2022'
+and dc.doctorid=d.id
+
+4. select AppVersion, count(*) No from DayOperation
+ where OperationDate  between '28-feb-2022' and '28-feb-2022'
+ group by AppVersion
+ order  by 2
+
+5. SELECT FF.DepartmentID,DEPT.NAME,COUNT(*) as No FROM FieldForce FF,DEPARTMENT DEPT
+WHERE FF.DEPARTMENTID=DEPT.ID AND FF.IsActive=1
+GROUP BY FF.DepartmentID,DEPT.NAME
+ ORDER BY 3 DESC
+
+6. select FORMAT(OperationDate, 'dd-MMM-yy') as  OperationDate, count(*) isattend from DayOperation
+where OperationDate between '01-feb-2023' and '28-feb-2023'
+group by FORMAT(OperationDate, 'dd-MMM-yy') 
+order by 1
+
+        </xmp>
+    
+</div>
+<!--------------------------------###############   2    #########################------------------------------------->    
+<div class="code">
+<h1> 2. All SQL Basic Query </h1>
+        <xmp>
+------------------------------------------------------------------------------------------------------
+SELECT, FROM, WHERE, BETWEEN, AND, OR, WHERE, NOT, ORDER BY, GROUP BY, IS NOT NULL, IN,  NOT IN, 
+INNER JOIN, LEFT JOIN, RIGHT JOIN, CASE, CREATE DATABASE, DROP DATABASE, BACKUP DATABASE, CREATE TABLE, DROP TABLE, ALTER TABLE, TRUNCATE TABLE
+------------------------------------------------------------------------------------------------------
+<start>SELECT * FROM table_name;<end>
+<start>SELECT CustomerName, City FROM Customers;<end>
+<start>SELECT DISTINCT Country FROM Customers;<end>
+<start>SELECT * FROM Customers WHERE Country='Mexico';<end>
+<start>SELECT * FROM Customers WHERE CustomerID=1;<end>
+<start>SELECT * FROM Products WHERE Price = 18;<end>
+<start>SELECT * FROM Products WHERE Price > 30;<end>
+<start>SELECT * FROM Products WHERE Price < 30;<end>
+<start>SELECT * FROM Products WHERE Price >= 30;<end>
+<start>SELECT * FROM Products WHERE Price <= 30;<end>
+"<start>SELECT * FROM Products WHERE Price <> 18;
+<end>"
+<start>SELECT * FROM Products WHERE Price BETWEEN 50 AND 60;<end>
+<start>SELECT * FROM Customers WHERE City LIKE 's%';<end>
+"<start>SELECT * FROM Customers WHERE City IN ('Paris','London');
+<end>"
+"<start>SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';<end>"
+"<start>SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';<end>"
+"<start>SELECT * FROM Customers
+WHERE NOT Country='Germany';<end>"
+"<start>SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';<end>"
+"<start>SELECT * FROM Customers
+ORDER BY Country ASC, CustomerName DESC;<end>"
+"<start>INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');<end>"
+"<start>SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NULL;<end>"
+"<start>SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NOT NULL;<end>"
+"<start>UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;<end>"
+<start>DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';<end>
+"<start>SELECT * FROM Customers
+WHERE Country='Germany'
+LIMIT 3;<end>"
+"<start>SELECT MIN(Price) AS SmallestPrice
+FROM Products;<end>"
+"<start>SELECT MAX(Price) AS LargestPrice
+FROM Products;<end>"
+"<start>SELECT COUNT(ProductID)
+FROM Products;<end>"
+"<start>SELECT AVG(Price)
+FROM Products;<end>"
+"<start>SELECT SUM(Quantity)
+FROM OrderDetails;<end>"
+"<start>SELECT * FROM Customers
+WHERE CustomerName LIKE 'a%';<end>"
+"<start>SELECT * FROM Customers
+WHERE City LIKE '_ondon';<end>"
+"<start>SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');<end>"
+"<start>SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');<end>"
+"<start>SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);<end>"
+"<start>SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;<end>"
+"<start>SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;<end>"
+"<start>SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND CategoryID NOT IN (1,2,3);<end>"
+"<start>SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;<end>"
+"<start>SELECT * FROM Products
+WHERE ProductName NOT BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;<end>"
+"<start>SELECT * FROM Orders
+WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;<end>"
+"<start>SELECT * FROM Orders
+WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';<end>"
+"<start>SELECT o.OrderID, o.OrderDate, c.CustomerName
+FROM Customers AS c, Orders AS o
+WHERE c.CustomerName='Around the Horn' AND c.CustomerID=o.CustomerID;<end>"
+"<start>SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;<end>"
+"<start>SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);<end>"
+"<start>SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;<end>"
+"<start>SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;<end>"
+"<start>SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;<end>"
+"<start>SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City 
+ORDER BY A.City;
+<end>"
+"<start>SELECT City FROM Customers
+UNION
+SELECT City FROM Suppliers
+ORDER BY City;<end>"
+"<start>SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;<end>"
+"<start>SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;<end>"
+"<start>SELECT 'Customer' AS Type, ContactName, City, Country
+FROM Customers
+UNION
+SELECT 'Supplier', ContactName, City, Country
+FROM Suppliers;<end>"
+"<start>SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;<end>"
+"<start>SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;<end>"
+"<start>SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+GROUP BY ShipperName;<end>"
+"<start>SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5
+ORDER BY COUNT(CustomerID) DESC;<end>"
+"<start>SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);<end>"
+"<start>SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL
+  (SELECT column_name
+  FROM table_name
+  WHERE condition);<end>"
+"<start>SELECT ProductName
+FROM Products
+WHERE ProductID = ALL
+  (SELECT ProductID
+  FROM OrderDetails
+  WHERE Quantity = 10);<end>"
+"<start>SELECT Customers.CustomerName, Orders.OrderID
+INTO CustomersOrderBackup2017
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;<end>"
+"<start>INSERT INTO Customers (CustomerName, City, Country)
+SELECT SupplierName, City, Country FROM Suppliers
+WHERE Country='Germany';<end>"
+"<start>SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;<end>"
+"<start>SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))
+FROM Products;<end>"
+"<start>CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
+AS
+SELECT * FROM Customers WHERE City = @City
+GO;<end>"
+"<start>.--1Select all:
+SELECT * FROM Customers;<end>"
+<start>SQL DB Code<end>
+<start>CREATE DATABASE testDB;<end>
+<start>DROP DATABASE testDB;<end>
+"<start>BACKUP DATABASE testDB
+TO DISK = 'D:\backups\testDB.bak';<end>"
+"<start>BACKUP DATABASE testDB
+TO DISK = 'D:\backups\testDB.bak'
+WITH DIFFERENTIAL;<end>"
+"<start>CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);<end>"
+"<start>CREATE TABLE TestTable AS
+SELECT customername, contactname
+FROM customers;<end>"
+<start>DROP TABLE Shippers;<end>
+<start>TRUNCATE TABLE table_name;<end>
+"<start>ALTER TABLE Customers
+ADD Email varchar(255);<end>"
+"<start>ALTER TABLE Customers
+DROP COLUMN Email;<end>"
+"<start>CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);<end>"
+"<start>CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);<end>"
+"<start>CREATE TABLE Persons (
+    ID int NOT NULL UNIQUE,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);<end>"
+"<start>CREATE TABLE Persons (
+    ID int NOT NULL PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);<end>"
+"<start>CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+);<end>"
+"<start>CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int CHECK (Age>=18)
+);<end>"
+"<start>CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Sandnes'
+);<end>"
+"<start>CREATE INDEX idx_lastname
+ON Persons (LastName);<end>"
+"<start>CREATE INDEX idx_pname
+ON Persons (LastName, FirstName);<end>"
+"<start>CREATE TABLE Persons (
+    Personid int IDENTITY(1,1) PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);<end>"
+<start>DATE - format YYYY-MM-DD<end>
+<start>DATETIME - format: YYYY-MM-DD HH:MI:SS<end>
+<start>SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS<end>
+"<start>CREATE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName
+FROM Customers
+WHERE Country = 'Brazil';<end>"
+"<start>CREATE OR REPLACE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName, City
+FROM Customers
+WHERE Country = 'Brazil';<end>"
+<start>DROP VIEW [Brazil Customers];<end>
+--------------------------------------------------------------------------------------------------------
+--delete GPSTraking	
+--delete POILocation	
+	
+--delete Feedback	
+--delete CashDisbursement	
+--delete PushMessage	
+--delete FFLocation	
+--delete MonthlyAttendance	
+--delete MonthlyTransaction	
+--delete MonthlyAttendanceMH	
+--delete MonthlyTransactionWithDetails	
+--delete MonthlyTransactionWithDetailsMH	
+--delete UserLogInHistory	
+	
+--delete FieldForceCashTarget	
+--delete FieldForceProductTarget	
+--delete CompanyCashTarget	
+--delete CompanyProductTarget	
+--delete DistributorCashTarget	
+--delete DistributorProductTarget	
+	
+--delete POILocation	
+--delete CheckInHistory	
+--delete DataChangeDateHistory	
+--delete DiscountCardTran	
+--delete FieldForceDataChangeHistory	
+--delete GPSTraking	
+--delete DeviceStatus	
+--delete DistLocation	
+--delete AppNotification	
+
+
+delete DoctorCallBrand where DoctorCallId in(select id from  DoctorCall where CallDate<='30 Jun 2022')
+go
+delete DoctorCallGift where DoctorCallId in(select id from  DoctorCall where CallDate<='30 Jun 2022')
+go
+delete DoctorCallBrandMonthlySummary where MonthYearDate<'30 Jun 2022'
+go
+delete DoctorCallMonthlySummary where MonthYearDate<'30 Jun 2022'
+go
+delete DoctorCallImage where DoctorCallId in(select id from  DoctorCall where CallDate<='30 Jun 2022')
+go
+delete DoctorCallImageBrand where DoctorCallId in(select id from  DoctorCall where CallDate<='30 Jun 2022')
+go
+
+delete DoctorCallMarketHierarchy where DCRId in(select id from  DoctorCall where CallDate<='30 Jun 2022')
+go
+delete DoctorCallProduct where DoctorCallId in(select id from  DoctorCall where CallDate<='30 Jun 2022')
+go
+delete DoctorCallRxProduct where DoctorCallId in(select id from  DoctorCall where CallDate<='30 Jun 2022')
+go
+delete DoctorCallRxProductMonthlySummary where MonthYearDate<'30 Jun 2022'
+go
+delete DoctorCall where CallDate<='30 Jun 2022'
+go
+----------------------------------------------------------------
+SP_HELP GPSTraking
+----------------------------------------------------------------
+update doctor set isqualified=1 where code='p250005'
+----------------------------------------------------------------
+        </xmp>
+    </div>
+
+
+<!------------------------------###################    3     ######################-------------->    
+
+<div class="code">
+<h1> 3. OPEN REPORT QUERY </h1>
+        <xmp>
+
+
+-----------------------doctor wise brand Rx---------------------------------
+            select
+cast('01-' + FORMAT(calldate, 'MMM')
+   + '-' + cast(YEAR(calldate) as char) as date) as  Mon_year,
+concat(ff.code,'-',ff.name) FieldForce,
+  concat(ff.WorkLocation,'-',ff.GroupCode) Territory,
+d.Code,d.Name, d.Degree, d.Address,
+b.Name BrandName,
+  count(dcb.id) TotalRx
+from DoctorCall dc,
+     Doctor d,
+     DoctorCallImageBrand dcb ,
+    FieldForce ff,
+     Brand b
+Where dc.CallDate
+   between '01-jan-2022' and '31-jan-2022'
+--and (@distid='00000000-0000-0000-0000-000000000000'  OR dc.DistributorId=@distid)
+--and (@departmentID='00000000-0000-0000-0000-000000000000' OR @departmentID=dc.DepartmentID)
+--and (@ffid='00000000-0000-0000-0000-000000000000' OR @ffid=dc.FieldForceId)
+--and (@doctorid='00000000-0000-0000-0000-000000000000' OR @doctorid=dc.DoctorId)
+--and (@brandid='00000000-0000-0000-0000-000000000000' OR @brandid=dcb.BrandId)
+--and (@mh='00000000-0000-0000-0000-000000000000' OR dc.fieldforceid in(select Id from GetAllFieldForces(@mh)))
+and dc.DoctorId=d.ID
+and dc.Id=dcb.DoctorCallId
+and ff.id=dc.FieldForceId
+and dcb.BrandId=b.ID
+and d.code = 'P054778'
+group by cast('01-' + FORMAT(calldate, 'MMM')
+   + '-' + cast(YEAR(calldate) as char) as date),
+concat(ff.code,'-',ff.name),ff.WorkLocation,ff.GroupCode,
+ d.Code,
+   d.Name,
+   d.Degree,
+   d.Address,
+b.Name
+Order by
+cast('01-' + FORMAT(calldate, 'MMM')
+   + '-' + cast(YEAR(calldate) as char) as date) desc,
+case
+  when ff.GroupCode = 'A' then 1
+  when ff.GroupCode = 'B' then 2
+  when ff.GroupCode = 'C' then 3
+  when ff.GroupCode = 'H' then 4
+  when ff.GroupCode = 'G' then 5
+  when ff.GroupCode = 'V' then 6
+  when ff.GroupCode = 'N' then 7
+else 9
+end,
+concat(ff.WorkLocation,'-',ff.GroupCode), TotalRx desc
+
+
+--------------------------------------MIO/SMIO DCR & RX Report-------------------------------------------
+Select convert(varchar(10),CallInTime, 105) + right(convert(varchar(32),CallInTime,100),8) CallDate,concat(ff.code,'-',ff.name) Fieldforce,concat(isnull(ff.worklocation,'-'),'-',isnull(ff.[GroupCode],'-')) Territory,
+case when isnull(CostType,'0')='0' THEN 'DCR' ELSE 'RxCall' end as CallType,
+case when ApprovalDate is not null then 'YES' ELSE 'NO' end as Approved,
+concat(D.Name,'-' ,d.Code) Doctor, 
+isnull(d.Speciality,'-') Speciality,isnull(d.Class,'-') Class, replace(d.Brands,'|',', ') DoctorBrands,isnull(dc.DCR_Shift,'-') Shift,isnull(dc.Location,'-') Location,isnull(CAST(Distance AS NUMERIC(18,2)),-1) Distance, isnull(dc.WorkedWith,'-') WorkedWith,isnull(dc.DCRBrandNames,'-') 'TargetProducts',isnull(DC.TotalImage,0) 'RxImage'
+,isnull(temp.RxProductNames,'-') 'RxProduct', isnull(dc.DoctorCallGiftNames,'-') 'PromoMaterial', isnull(dc.Comments,'-') Comments
+from doctorcall dc
+CROSS APPLY (
+ SELECT RxBrands + ','
+ FROM DoctorCallImage AS ol
+ WHERE ol.DoctorCallId = dc.ID 
+ FOR XML PATH('') ) temp ( RxProductNames ),fieldforce ff, Doctor d
+Where CallDate between @fromDate and @toDate 
+AND (@distid='00000000-0000-0000-0000-000000000000' OR @distid=dc.DistributorId)
+AND (@mh='00000000-0000-0000-0000-000000000000' OR dc.FieldForceId in(select id from GetAllFieldForces(@mh)))
+AND (@ffid='00000000-0000-0000-0000-000000000000' OR @ffid=dc.FieldForceId)
+AND (@departmentID='00000000-0000-0000-0000-000000000000' OR @departmentID=dc.DepartmentId)
+AND (@doctorid='00000000-0000-0000-0000-000000000000' OR @doctorid=dc.DoctorId)
+AND (@ffTypeId='00000000-0000-0000-0000-000000000000' OR @ffTypeId=ff.FFTypeId)
+and dc.FieldForceId=ff.ID and dc.DoctorId=d.ID  order by dc.CallInTime
+
+
+
+
+---------------------------------------FF wise all Brand Rx.---------------------------------------------
+select concat(ff.code,'-',ff.name) FieldForce,concat(ff.WorkLocation,'-',ff.GroupCode) Territory,b.Name BrandName, count(dcb.id) TotalRx 
+from DoctorCall dc, DoctorCallImageBrand dcb , FieldForce ff, Brand b
+Where dc.CallDate between @fromDate and @toDate and (@distid='00000000-0000-0000-0000-000000000000' 
+OR dc.DistributorId=@distid) and (@departmentID='00000000-0000-0000-0000-000000000000' OR @departmentID=dc.DepartmentID)  
+and (@ffid='00000000-0000-0000-0000-000000000000' OR @ffid=dc.FieldForceId) and (@mh='00000000-0000-0000-0000-000000000000' 
+OR dc.fieldforceid in(select Id from GetAllFieldForces(@mh))) 
+and (@brandId='00000000-0000-0000-0000-000000000000' OR @brandId=dcb.BrandId) 
+and dc.Id=dcb.DoctorCallId  
+and ff.id=dc.FieldForceId and dcb.BrandId=b.ID
+group by concat(ff.code,'-',ff.name),ff.WorkLocation,ff.GroupCode,b.Name 
+Order by concat(ff.WorkLocation,'-',ff.GroupCode)
+
+
+---------------------------------------------------AM & Above DCR-----------------------------------------
+select dept.Name Dept,d.Code Depot, CONCAT(ff.code,'-',ff.Name) FieldForce,convert(varchar(15), CallDate,106) CallDate,REPLACE (Markets,',',CHAR(13)) Markets,REPLACE (WorkedWith,',',CHAR(13)) WorkedWith,TotalRx,VisitedDoctors Doctors,
+REPLACE (DoctorsCategories,',',CHAR(13)) Doc_Cat,TotalChemists Chemists,round(cast(BusinessAmount as real),0) Business,CompetitorsActivities Comp_Actv,DoctorsComments Doc_Comm 
+from WDCR dc, Department dept, FieldForce ff,Distributor d
+Where CallDate between @fromDate and @toDate 
+AND (@distid='00000000-0000-0000-0000-000000000000' OR @distid=dc.DistributorId)
+AND (@mh='00000000-0000-0000-0000-000000000000' OR dc.FieldForceId in(select id from GetAllFieldForces(@mh)))
+AND (@ffid='00000000-0000-0000-0000-000000000000' OR @ffid=dc.FieldForceId)
+AND (@departmentID='00000000-0000-0000-0000-000000000000' OR @departmentID=dc.DepartmentId)
+AND (@ffTypeId='00000000-0000-0000-0000-000000000000' OR @ffTypeId=ff.FFTypeId)
+and dc.FieldForceId=ff.ID and dc.DepartmentID=dept.id and dc.DistributorId=d.id  order by dc.CallDate
+
+
+-------------------------------------------AM Above DCR--------------------------------
+select concat(ff.Code,'-',ff.Name)FF, format(CallDate,'dd-MMM-yyyy')CallDate,TotalChemists TotalVisitChemist,VisitedDoctors as TotalVisitDoctors,TotalRx,
+DoctorsCategories as VisitedDoctors from WDCR a ,FieldForce ff where a.FieldForceId=ff.ID
+and a.CallDate between @fromdate and @todate and a.FieldForceId=@ffid 
+ order by a.CallDate
+
+
+--------------------------------------------User web login count------------------------------------------
+select MembershipUserKey Email,LogInCount from UserLogInHistory  where LogInMonth=DATEADD(DAY,1,EOMONTH(@fromDate,-1)) and  [Type]='WebLogIN'
+order by LogInCount desc
+        </xmp>
+    
+</div>
+<!--------------------------------#############    3 BOSS QUERY    ########################-------------->    
+<div class="code">
+<h1> 3. BOSS QUERY </h1>
+        <xmp>
+
+--------------------------TOP-------------------------------
+select top (10)d.code, d.name
+from doctorcall dc, 
+     doctor d
+where dc.calldate between '01-jan-2022' and '31-jan-2022'
+and dc.doctorid=d.id
+
+
+------------------------------------doctor sample sub report-------------------------
+select
+gi.PromoItemType,
+--gi.Code as Code,
+gi.Name as SampleName,
+sum(dcg.qty) qty
+from DoctorCall dc,
+     DoctorCallGift dcg,
+  GiftItem gi,
+  Doctor d
+Where  dc.CallDate between $P{P_Sample_From_Date}
+  and  $P{P_Sample_To_Date}
+and dc.id = dcg.DoctorCallId -- = 'FF2B2574-3049-46B6-803B-C2E609227F1F'
+and dc.DoctorId = d.Id
+and dcg.GiftItemId = gi.id
+and d.Code = $P{P_Sample_Doc_Code}
+group by gi.PromoItemType,
+gi.Name
+order by
+  PromoItemType,3 desc,
+--gi.code,
+gi.Name
+     
+--------------------------------dcr sub report -----------------------------------
+    
+ select
+--dc.id,
+concat(ff.WorkLocation,'-',ff.GroupCode) Territory,
+ff.Code as ff_code,
+ff.name as ff_name,
+--dc.calldate,
+--ServerDate,
+--format(dc.calldate, 'ddd dd/MM/yy') as calldate,
+CallDate,
+CallInTime,
+CallOutTime,
+dc.Comments,
+dc.DCR_Shift,
+dc.WorkedWith,
+dc.DoctorCallGiftNames,
+dc.Distance,
+  round(dc.distance/1000, 2) as Distance_In_kilometer
+--,[testdb].[dbo].get_dc_sample(dc.id) sample
+from DoctorCall dc,
+  doctor d,
+fieldforce ff
+Where dc.CallDate between $P{P_DCR_FROM_Date}
+and  $P{P_DCR_TO_Date}
+and dc.fieldforceid = ff.id
+and dc.DoctorId=d.ID
+--and dc.Id=dcg.DoctorCallId
+--and dcg.GiftItemId = gi.id
+--and dc.doctorid in (select id from doctor where code = 'P223989')
+--and d.code = 'P223989'
+and d.code = $P{P_DCR_Doctor}
+and dc.CostType = '0'
+order by 1, dc.CallInTime
+
+</xmp>
+    
+</div>
+
+<!-------------------------###############   4    #####################-------------------------->    
+<div class="code">
+<h1> 4. MY QUERY </h1>
+        <xmp>
+
+-----------------------Monthly day wise Attn,GPS,DCR,>100m DCR,Rx,>100m Rx & POI Summary Report 2023------------
+
+
+---------------------DATE WISE ATTN-----------------------
+select 
+FORMAT(OperationDate, 'dd-MMM-yy') 
+  as  OperationDate, 
+count(*) isattend
+from DayOperation
+where OperationDate between '01-feb-2023' and '28-feb-2023'
+group by FORMAT(OperationDate, 'dd-MMM-yy') 
+order by 1
+---------------------DATE WISE GPS-----------------------
+ select 
+FORMAT(OperationDate, 'dd-MMM-yy') 
+  as  OperationDate, 
+count(*) no_of_gps
+from gpstraking
+where OperationDate between '01-feb-2023' and '28-feb-2023'
+group by FORMAT(OperationDate, 'dd-MMM-yy') 
+order by 1
+----------------------DATE WISE DCR-----------------------
+select 
+FORMAT(CallDate, 'dd-MMM-yy') 
+  as  CallDate, 
+count(*) no_of_dcr
+from doctorcall
+where callDate between '01-feb-2023' and '28-feb-2023'
+group by FORMAT(CallDate, 'dd-MMM-yy')
+order by 1
+------------------------DATE WISE DCR-------------------------
+select 
+FORMAT(CallDate, 'dd-MMM-yy') 
+  as  CallDate, 
+count(*) no_of_dcr
+from doctorcall
+where callDate between '28-jan-2022' and '28-jan-2022' and Distance>100
+group by FORMAT(CallDate, 'dd-MMM-yy')
+order by 1
+-----------------------DATE WISE RX-------------------------
+select 
+FORMAT(CallDate, 'dd-MMM-yy') 
+  as  CallDate, 
+SUM(ExpTotalImage) AS image
+from doctorcall
+where callDate between '31-jan-2022' and '31-jan-2022' 
+group by FORMAT(CallDate, 'dd-MMM-yy')
+----------------------DATE WISE RX-----------------------------
+select 
+FORMAT(CallDate, 'dd-MMM-yy') 
+  as  CallDate, 
+SUM(ExpTotalImage) AS image
+from doctorcall
+where callDate between '31-jan-2022' and '31-jan-2022' and Distance>100
+group by FORMAT(CallDate, 'dd-MMM-yy')
+
+------------------------AppVersion-----------------
+select AppVersion, count(*) No from DayOperation
+ where OperationDate  between '28-feb-2022' and '28-feb-2022'
+ group by AppVersion
+ order  by 2
+--------------------DEPARTMENT WISE FF-----------------------
+SELECT FF.DepartmentID,DEPT.NAME,COUNT(*) as No
+FROM FieldForce FF,DEPARTMENT DEPT
+WHERE FF.DEPARTMENTID=DEPT.ID
+AND
+FF.IsActive=1
+GROUP BY FF.DepartmentID,DEPT.NAME
+ ORDER BY 3 DESC
+-------------------DEPARTMENT WISE DCR-----------------------
+ SELECT DC.DepartmentID,DEPT.NAME,COUNT(*) as No
+FROM DOCTORCALL DC,DEPARTMENT DEPT
+WHERE DC.DEPARTMENTID=DEPT.ID AND CallDate  between '28-feb-2023' and '28-feb-2023'
+GROUP BY DC.DepartmentID,DEPT.NAME
+ ORDER BY 3 DESC
+--------------------DATE WISE GPS------------------------
+ select 
+FORMAT(OperationDate, 'dd-MMM-yy') 
+  as  OperationDate, 
+count(*) no_of_gps
+from gpstraking
+where OperationDate between '01-feb-2023' and '28-feb-2023'
+group by FORMAT(OperationDate, 'dd-MMM-yy') 
+order by 1
+---------------------DATE WISE DCR-----------------------
+select 
+FORMAT(CallDate, 'dd-MMM-yy') 
+  as  CallDate, 
+count(*) no_of_dcr
+from doctorcall
+where callDate between '01-feb-2023' and '28-feb-2023'
+group by FORMAT(CallDate, 'dd-MMM-yy')
+order by 1
+----------------------DATE WISE DCR------------------------
+select 
+FORMAT(CallDate, 'dd-MMM-yy') 
+  as  CallDate, 
+count(*) no_of_dcr
+from doctorcall
+where callDate between '01-feb-2023' and '28-feb-2023' and distance>=100
+group by FORMAT(CallDate, 'dd-MMM-yy')
+order by 1
+----------------------DATE WISE ATTN---------------------------
+select 
+FORMAT(OperationDate, 'dd-MMM-yy') 
+  as  OperationDate, 
+count(*) isattend
+from DayOperation
+where OperationDate between '01-feb-2023' and '28-feb-2023'
+group by FORMAT(OperationDate, 'dd-MMM-yy') 
+order by 1
+----------------------DCR-------------------------------
+select dist.name, count(*) as No from doctorcall dc, distributor dist
+ where dc.DistributorId=dist.id and CallDate between '28-feb-2023' and '28-feb-2023'
+ group by dist.name
+ order  by 2 desc
+
+select dist.name, count(*) as No from doctorcall dc, distributor dist
+ where dc.DistributorId=dist.id and CallDate between '28-feb-2023' and '28-feb-2023' and Distance>=100
+ group by dist.name
+ order  by 2 desc
+---------------------------RX----------------------------
+select dist.name, count(*) as No from RxCall rc, distributor dist
+ where rc.DistributorId=dist.id and CallDate between '28-feb-2023' and '28-feb-2023'
+ group by dist.name
+ order  by 2 desc
+
+select dist.name,dept.name,dc.ExpTotalImage
+from DoctorCall dc,distributor dist, Department dept
+where dc.DistributorId=dist.id and dc.DepartmentID=dept.id and CallDate between '28-feb-2023' and '28-feb-2023' and Distance>=100
+------------------------DOCTOR-----------------------------------
+select doc.DistributorId,dist.code,dist.name, count(*) as No from Doctor doc, distributor dist
+ where doc.DistributorId=dist.id and doc.IsActive=1
+ --and CreationDate between '25-jan-2022' and '26-jan-2022'
+ group by doc.DistributorId,dist.code,dist.name
+ order by 4 desc
+-----------------------------POI--------------------------------
+select dist.name, count(*) as No from POILocation poi, distributor dist
+ where poi.DistributorId=dist.id and CaptureDate between '27-feb-2023' and '28-feb-2023'
+ group by dist.name
+ order  by 2 desc
+------------------------------------------------
+        </xmp>
+    
+</div>
+<!------------8----------->    
+<div class="code">
+<h1> 1. Basic Code </h1>
+        <xmp>
+            <!DOCTYPE html>
+            <html>
+
+            <head>
+                <title>HTML Tutorial</title>
+            </head>
+
+            <body>
+                This is a simple HTML page
+            </body>
+
+            </html>
+        </xmp>
+    
+</div>
+<!------------9------------>    
+<div class="code">
+<h1> 1. Basic Code </h1>
+        <xmp>
+            <!DOCTYPE html>
+            <html>
+
+            <head>
+                <title>HTML Tutorial</title>
+            </head>
+
+            <body>
+                This is a simple HTML page
+            </body>
+
+            </html>
+        </xmp>
+    
+</div>
+<!------------10------------>    
+<div class="code">
+<h1> 1. Basic Code </h1>
+        <xmp>
+            <!DOCTYPE html>
+            <html>
+
+            <head>
+                <title>HTML Tutorial</title>
+            </head>
+
+            <body>
+                This is a simple HTML page
+            </body>
+
+            </html>
+        </xmp>
+    
+</div>
+
+    
+
+</body>
+
+</html>

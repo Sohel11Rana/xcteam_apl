@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APL Generic Name List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #eaeaea;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Generic Name</h1>
+       
+    </div>
+    <div class="search-box">
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search here...">
+    </div>
+    <table id="productTable">
+        <thead>
+            <tr><td>1</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>ISR-Insulet</td><td>Insulin</td></tr>
+<tr><td>2</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>INP-Insulet ASP</td><td>Insulin Asparte</td></tr>
+<tr><td>3</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>EMF-Empaglif</td><td>Empagliflozin</td></tr>
+<tr><td>4</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>EMM-Empaglif-M</td><td>Empagliflozin + Metformin Hydrochloride</td></tr>
+<tr><td>5</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>GNN-Gluvan</td><td>Vildagliptin</td></tr>
+<tr><td>6</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>GVS-Gluvan Plus</td><td>Vildagliptin + Metformin HCl</td></tr>
+<tr><td>7</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>LIM-Limpa</td><td>Linagliptin + Empagliflozin</td></tr>
+<tr><td>8</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>LNM-Linaglip-M</td><td>Linagliptin+Metformin</td></tr>
+<tr><td>9</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>LNP-Linaglip</td><td>Linagliptin</td></tr>
+<tr><td>10</td><td>AG-AG</td><td>004-Major Antidiabetics</td><td>WKN-Wikitin</td><td>Omarigliptin</td></tr>
+<tr><td>11</td><td>AG-AG</td><td>019-Biotech</td><td>DPN-Dipoetin</td><td>Darbepoetin</td></tr>
+<tr><td>12</td><td>AG-AG</td><td>019-Biotech</td><td>NPN-Nipotin</td><td>Erythropoietin</td></tr>
+<tr><td>13</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>NTD-Nitrocard</td><td>Nitroglycerin</td></tr>
+<tr><td>14</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>INS-Intravas</td><td>Enoxaparin Sodium</td></tr>
+<tr><td>15</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>ANA-Ancor-A</td><td>Amlodipine + Bisoprolol Hemifumarate</td></tr>
+<tr><td>16</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>ANR-Ancor</td><td>Bisoprolol Hemifumarate</td></tr>
+<tr><td>17</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>ANS-Ancor Plus</td><td>Bisoprolol Fumarate +Hydrochlorothiazide</td></tr>
+<tr><td>18</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>DBK-Duoblock</td><td>Olmesartan + Amlodipine</td></tr>
+<tr><td>19</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>GRH-Giran H</td><td>Candesartan Cilexetil + Hydrochlorothiazide</td></tr>
+<tr><td>20</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>GRN-Giran</td><td>Candesartan Cilexetil</td></tr>
+<tr><td>21</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>LCD-Lacicard</td><td>Lacidipine</td></tr>
+<tr><td>22</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>MTR-Metacard</td><td>Trimetazidine</td></tr>
+<tr><td>23</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>MXB-Maxineb</td><td>Nebivolol</td></tr>
+<tr><td>24</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>OSN-Osartan</td><td>Losartan Potassium</td></tr>
+<tr><td>25</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>OSZ-Osartan HZ</td><td>Losartan Potassium+Hydrochlorothiazide</td></tr>
+<tr><td>26</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>PSK-Presulock</td><td>Olmesartan</td></tr>
+<tr><td>27</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>PTS-Pitavas</td><td>Pitavastatin</td></tr>
+<tr><td>28</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>RVN-Ruvastin</td><td>Rosuvastatin</td></tr>
+<tr><td>29</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>TCD-Ticacard</td><td>Ticagrelor</td></tr>
+<tr><td>30</td><td>AG-AG</td><td>021-Major Cardiac Products</td><td>TCL-TCL-R</td><td>Atorvastatin</td></tr>
+<tr><td>31</td><td>AG-AG</td><td>025-Hormones</td><td>TTN-Thormon</td><td>Levothyroxine Sodium</td></tr>
+<tr><td>32</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>TGN-Tigicon</td><td>Fenofibrate</td></tr>
+<tr><td>33</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>AGN-Agoxin</td><td>Digoxin</td></tr>
+<tr><td>34</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>ASS-Aspin</td><td>Aspirin + Clopidogrel</td></tr>
+<tr><td>35</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>BTD-Betacard</td><td>Metoprolol Tartrate</td></tr>
+<tr><td>36</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>CEN-Centiva</td><td>Ciprofibrate</td></tr>
+<tr><td>37</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>CIL-Cilnipin</td><td>Cilnidipine</td></tr>
+<tr><td>38</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>CRA-Clocard-A</td><td>Aspirin + Clopidogrel</td></tr>
+<tr><td>39</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>CRD-Clocard</td><td>Clopidogrel</td></tr>
+<tr><td>40</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>FRC-Fruselac</td><td>Spironolactone + Furosemide</td></tr>
+<tr><td>41</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>ISM-ISM</td><td>Isosorbide-5 Mononitrate</td></tr>
+<tr><td>42</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>LDD-Lodicard</td><td>Amlodipine Besylate + Atenolol</td></tr>
+<tr><td>43</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>LDN-Lodipin</td><td>Amlodipine Besylate</td></tr>
+<tr><td>44</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>RMK-Ramilok</td><td>Ramipril</td></tr>
+<tr><td>45</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>TMA-Temcard-A</td><td>Amlodipine Besylate + Telmisartan</td></tr>
+<tr><td>46</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>TMD-Temcard</td><td>Telmisartan</td></tr>
+<tr><td>47</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>TND-Tenocard</td><td>Atenolol</td></tr>
+<tr><td>48</td><td>AG-AG</td><td>045-Other Cardiac Products</td><td>XLX-Xelix</td><td>Indapamide</td></tr>
+<tr><td>49</td><td>AG-AG</td><td>046-Other Antidiabetics</td><td>GLT-Glucomet</td><td>Metformin HCl</td></tr>
+<tr><td>50</td><td>AG-AG</td><td>046-Other Antidiabetics</td><td>GLD-Glucozid</td><td>Gliclazide</td></tr>
+<tr><td>51</td><td>AG-AG</td><td>046-Other Antidiabetics</td><td>GLM-Glucozid MR</td><td>Gliclazide</td></tr>
+<tr><td>52</td><td>AG-AG</td><td>046-Other Antidiabetics</td><td>GLR-Gluconor</td><td>Glimepiride</td></tr>
+<tr><td>53</td><td>ONCO-ONCOLOGY</td><td>035-Steroid</td><td>SON-Sonexa ON</td><td>Dexamethasone SP ON</td></tr>
+<tr><td>54</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>PAL-Palbolib</td><td>Palbociclib</td></tr>
+<tr><td>55</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>FNN-FILGEN</td><td>Filgrastim</td></tr>
+<tr><td>56</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>ADN-Arodoxin</td><td>Doxorubicin Hydrochloride</td></tr>
+<tr><td>57</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>AIX-Aritax</td><td>Paclitaxel</td></tr>
+<tr><td>58</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>ARI-Aricarb</td><td>Carboplatin</td></tr>
+<tr><td>59</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>ARP-Ariplat</td><td>Cisplatin</td></tr>
+<tr><td>60</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>ANN-AROMATIN</td><td>Anastrozol</td></tr>
+<tr><td>61</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>APZ-APETIZ</td><td>Megestrol Acetate</td></tr>
+<tr><td>62</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>ATB-Atanib</td><td>Afatinib</td></tr>
+<tr><td>63</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>CPN-Capecitin</td><td>Capecitabine</td></tr>
+<tr><td>64</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>ERB-Ertinib</td><td>Erlotinib</td></tr>
+<tr><td>65</td><td>ONCO-ONCOLOGY</td><td>049-Anticancer</td><td>NBP-Nibalap</td><td>Lapatinib</td></tr>
+<tr><td>66</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>IGD-I-Gold</td><td>Ascorbic Acid + Copper + Lutein + Vitamin E + Zinc</td></tr>
+<tr><td>67</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>AFM-AFM</td><td>fluorometholone acetate</td></tr>
+<tr><td>68</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>AFS-AFM-Plus</td><td>fluorometholone+gentamicin</td></tr>
+<tr><td>69</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>AFT-AFM-T</td><td>fluorometholone+tetrahydrozoline</td></tr>
+<tr><td>70</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>AHN-Aristophen</td><td>Chloramphenicol oph</td></tr>
+<tr><td>71</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ANEE-Alphaten</td><td>brimonidine</td></tr>
+<tr><td>72</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ANNE-Avatan</td><td>Travoprost</td></tr>
+<tr><td>73</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>APNE-Aprocin oph</td><td>ciprofloxacin hydrochloride</td></tr>
+<tr><td>74</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>APX-Aprodex</td><td>ciprofloxacin+dexamethasone</td></tr>
+<tr><td>75</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ARL-Aristomol</td><td>Timolol Maleate</td></tr>
+<tr><td>76</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ARM-Aristocrom</td><td>Sodium Cromoglycate</td></tr>
+<tr><td>77</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ART-Aristobet-N E/O</td><td>betamethasone+neomycin</td></tr>
+<tr><td>78</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>BNT-Brinzopt</td><td>Brinzolamide</td></tr>
+<tr><td>79</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>BPS-Bepotas</td><td>Bepotastine Besilate</td></tr>
+<tr><td>80</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>BSX-Besiflox</td><td>Besifloxacin</td></tr>
+<tr><td>81</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>CDN-Caftadin</td><td>Alcaftadine</td></tr>
+<tr><td>82</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>CMS-Combipres</td><td>Brimonidine Tartrate + Timolol Maleate</td></tr>
+<tr><td>83</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>CRLE-Cortisol oph</td><td>prednisolone acetate</td></tr>
+<tr><td>84</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>CYN-Cyporin</td><td>Cyclosporine</td></tr>
+<tr><td>85</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>CZT-Cozopt</td><td>dorzolamide+timolol</td></tr>
+<tr><td>86</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>DFUE-Diflu oph</td><td>fluconazole oph</td></tr>
+<tr><td>87</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>DRF-Drylief</td><td>Carboxymethylcellulose Sodium</td></tr>
+<tr><td>88</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>DXX-Dexamox Eye Drops</td><td>Dexamethasone Phosphate +Moxifloxacin</td></tr>
+<tr><td>89</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>EPT-Epinast</td><td>epinastine hcl</td></tr>
+<tr><td>90</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ERNE-Erdon oph</td><td>Diclofenac</td></tr>
+<tr><td>91</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>FLN-Fludin</td><td>Trifluridine</td></tr>
+<tr><td>92</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>GTN-Gatison</td><td>gatifloxacin+dexamethasone</td></tr>
+<tr><td>93</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>HYN-Hyloron</td><td>Sodium Hyaluronate</td></tr>
+<tr><td>94</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>LFR-Liftear</td><td>Lifitegrast</td></tr>
+<tr><td>95</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>LMXE-Lomeflox oph</td><td>lomefloxacin hydrochloride</td></tr>
+<tr><td>96</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>LPS-Lotepred DS</td><td>Loteprednol Etabonate</td></tr>
+<tr><td>97</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>LTD-Lotepred</td><td>Loteprednol Etabonate</td></tr>
+<tr><td>98</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>LTS-Lotepred-Plus</td><td>loteprednol etabonate+tobramycin</td></tr>
+<tr><td>99</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>MTN-Matropin</td><td>homatropine</td></tr>
+<tr><td>100</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NCL-NCL</td><td>Sodium Chloride 5%</td></tr>
+<tr><td>101</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NLP-Nesudil Plus</td><td>Latanoprost + Netarsudil</td></tr>
+<tr><td>102</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NMN-N-Mycin</td><td>Natamycin</td></tr>
+<tr><td>103</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NNN-Nevan</td><td>Nepafenac</td></tr>
+<tr><td>104</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NPD-Neopred</td><td>Difluprednate</td></tr>
+<tr><td>105</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NSL-Nesudil</td><td>Netarsudil</td></tr>
+<tr><td>106</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NTR-Neotear</td><td>carboxymethylcellulose sodium & glycerin</td></tr>
+<tr><td>107</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NVS-Nevan-TS</td><td>Nepafenac</td></tr>
+<tr><td>108</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>NZN-Nazin</td><td>naphazoline nitrate & zinc sulphate</td></tr>
+<tr><td>109</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OCL-Ocugel</td><td>hydroxypropyl methylcellulose</td></tr>
+<tr><td>110</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OLM-Olpadin-7</td><td>Olopatadine</td></tr>
+<tr><td>111</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OLN-Olpadin</td><td>Olopatadine</td></tr>
+<tr><td>112</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OLS-Olpadin-DS</td><td>Olopatadine</td></tr>
+<tr><td>113</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OPF-Opti Fusion</td><td>Sodium Hyaluronate + CMC</td></tr>
+<tr><td>114</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OPG-Optimox-XG</td><td>Moxifloxacin + Guargum</td></tr>
+<tr><td>115</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OPXE-Optimox oph</td><td>Moxifloxacin Hydrochloride</td></tr>
+<tr><td>116</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ORLE-Oradol oph</td><td>Ketorolac Tromethamine</td></tr>
+<tr><td>117</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OVLE-Ovel oph</td><td>levofloxacin hydrochloride</td></tr>
+<tr><td>118</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>OVS-Ovel-TS</td><td>levofloxacin hydrochloride</td></tr>
+<tr><td>119</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>PHT-Phacovit</td><td>Adenosine + Cytochrome C + Nicotinamide + Sodium Succinate</td></tr>
+<tr><td>120</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>PLE-Polyforte</td><td>prednisolone acetate+ neomycin+polymyxin b sulfate</td></tr>
+<tr><td>121</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>PLX-Polydex-N</td><td>dexamethasone+polymyxin+neomycin</td></tr>
+<tr><td>122</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>PRN-Procain</td><td>proparacaine</td></tr>
+<tr><td>123</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>PRR-Protear</td><td>povidone</td></tr>
+<tr><td>124</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>SFNE-Stafen oph</td><td>Ketotifen</td></tr>
+<tr><td>125</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>SNAE-Sonexa oph</td><td>Dexamethasone</td></tr>
+<tr><td>126</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>SXA-Sonexa-C</td><td>chloramphenicol+dexamethasone</td></tr>
+<tr><td>127</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>SYR-Systear</td><td>polyethylene glycol+propylene glycol</td></tr>
+<tr><td>128</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>TAG-TAG</td><td>Gatifloxacin</td></tr>
+<tr><td>129</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>TFN-Taflan</td><td>tafluprost</td></tr>
+<tr><td>130</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>TMN-T-Mycin</td><td>Tobramycin</td></tr>
+<tr><td>131</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>TMS-T-Mycinplus</td><td>tobramycin+dexamethasone</td></tr>
+<tr><td>132</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>TPN-Trophen</td><td>tropicamide+phenylephrine</td></tr>
+<tr><td>133</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>TRM-Tropicam</td><td>Tropicamide</td></tr>
+<tr><td>134</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>VSA-Vista</td><td>Ofloxacin Dihydrate</td></tr>
+<tr><td>135</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>XRM-Xirom</td><td>Bromfenac</td></tr>
+<tr><td>136</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ZLN-Zoladin</td><td>brinzolamide +brimonidine</td></tr>
+<tr><td>137</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ZPD-Zypred</td><td>Gatifloxacin + Loteprednol Etabonate</td></tr>
+<tr><td>138</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ACRE-Acyvir oph</td><td>acyclovir oph</td></tr>
+<tr><td>139</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>ATN-Aristen</td><td>clotrimazole oph</td></tr>
+<tr><td>140</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>HYL-Hypomer</td><td>Hypromellose</td></tr>
+<tr><td>141</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>XVL-Xoviral</td><td>Ganciclovir</td></tr>
+<tr><td>142</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>AZO-AZ oph</td><td>Azithromycin</td></tr>
+<tr><td>143</td><td>OPH-OPHTHALMIC</td><td>038-Ophtha</td><td>SDP-Fusithal Eye Drops</td><td>Fusidic Acid</td></tr>
+<tr><td>144</td><td>PHR-PHARMA</td><td>001-Anthelmintic</td><td>ABL-Abentel</td><td>Albendazole</td></tr>
+<tr><td>145</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>AFX-Afix</td><td>Cefixime</td></tr>
+<tr><td>146</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>AZT-AZ</td><td>Azithromycin Dihydrate</td></tr>
+<tr><td>147</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>ORB-Orbuten</td><td>Ceftibuten</td></tr>
+<tr><td>148</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>AXM-Axim</td><td>Cefuroxime Axetil</td></tr>
+<tr><td>149</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>AXV-Axim CV</td><td>Cefuroxime+Clavulanic Acid</td></tr>
+<tr><td>150</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>ANV-Axon</td><td>Ceftriaxone Sodium</td></tr>
+<tr><td>151</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>ARV-Aropen</td><td>Meropenem</td></tr>
+<tr><td>152</td><td>PHR-PHARMA</td><td>002-Major Antibiotics</td><td>OPX-Optimox</td><td>Moxifloxacin</td></tr>
+<tr><td>153</td><td>PHR-PHARMA</td><td>005-Antidrymouth</td><td>PLN-Pilogen</td><td>Pilocarpine</td></tr>
+<tr><td>154</td><td>PHR-PHARMA</td><td>006-Antiemetic</td><td>ATT-Apulset</td><td>Ondansetron</td></tr>
+<tr><td>155</td><td>PHR-PHARMA</td><td>006-Antiemetic</td><td>ACS-Acliz Plus</td><td>Meclizine HCl + Pyridoxine HCl</td></tr>
+<tr><td>156</td><td>PHR-PHARMA</td><td>006-Antiemetic</td><td>ACZ-Acliz</td><td>Meclizine HCl</td></tr>
+<tr><td>157</td><td>PHR-PHARMA</td><td>007-Antifibrinolytic</td><td>HMT-Hemostat</td><td>Tranexamic Acid</td></tr>
+<tr><td>158</td><td>PHR-PHARMA</td><td>008-Antifungals</td><td>DFU-Diflu</td><td>Fluconazole</td></tr>
+<tr><td>159</td><td>PHR-PHARMA</td><td>008-Antifungals</td><td>MYN-Mycon</td><td>Miconazole</td></tr>
+<tr><td>160</td><td>PHR-PHARMA</td><td>008-Antifungals</td><td>TRN-Terbifin</td><td>Terbinafine HCl</td></tr>
+<tr><td>161</td><td>PHR-PHARMA</td><td>008-Antifungals</td><td>KTL-Ketozol</td><td>Ketoconazole</td></tr>
+<tr><td>162</td><td>PHR-PHARMA</td><td>008-Antifungals</td><td>CSP-Caspa</td><td>Voriconazole</td></tr>
+<tr><td>163</td><td>PHR-PHARMA</td><td>009-Antigout</td><td>DCS-Dicliz Plus</td><td>Doxylamine Succinate + Pyridoxine Hydrochloride</td></tr>
+<tr><td>164</td><td>PHR-PHARMA</td><td>009-Antigout</td><td>FBX-Febux</td><td>Febuxostat</td></tr>
+<tr><td>165</td><td>PHR-PHARMA</td><td>010-Antihemorrhoidal</td><td>APT-Ariproct</td><td>Cinchocaine+Hydrocortisone+Neomycin+Esculin</td></tr>
+<tr><td>166</td><td>PHR-PHARMA</td><td>010-Antihemorrhoidal</td><td>HML-Hemoral</td><td>Diosmin + Hesperidin</td></tr>
+<tr><td>167</td><td>PHR-PHARMA</td><td>011-Antihistamines</td><td>AXN-Axofen</td><td>Fexofenadine</td></tr>
+<tr><td>168</td><td>PHR-PHARMA</td><td>011-Antihistamines</td><td>RHL-Rhinil</td><td>Cetirizine Dihydrochloride</td></tr>
+<tr><td>169</td><td>PHR-PHARMA</td><td>011-Antihistamines</td><td>SFN-Stafen</td><td>Ketotifen Fumarate</td></tr>
+<tr><td>170</td><td>PHR-PHARMA</td><td>011-Antihistamines</td><td>LRN-Loradin</td><td>Loratadine</td></tr>
+<tr><td>171</td><td>PHR-PHARMA</td><td>012-Antiprotozoals</td><td>NTN-Nitoxin</td><td>Nitazoxanide</td></tr>
+<tr><td>172</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>DRX-Dormax</td><td>Midazolam</td></tr>
+<tr><td>173</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>AML-Ametil</td><td>Prochlorperazine Maleate</td></tr>
+<tr><td>174</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>ANE-Anfree</td><td>Flupentixol + Melitracen</td></tr>
+<tr><td>175</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>ATL-Arotril</td><td>Clonazepam</td></tr>
+<tr><td>176</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>EVN-Evalin</td><td>Diazepam</td></tr>
+<tr><td>177</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>NRM-Norzim</td><td>Amitriptyline + Chlordiazepoxide</td></tr>
+<tr><td>178</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>NRN-Norzin</td><td>Fluphenazine+Nortriptyline</td></tr>
+<tr><td>179</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>NTS-Notens</td><td>Bromazepam</td></tr>
+<tr><td>180</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>PNR-Pinor</td><td>Imipramine HCl</td></tr>
+<tr><td>181</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>PRX-Piramax</td><td>Piracetam</td></tr>
+<tr><td>182</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>XLR-Xolam XR</td><td>Alprazolam</td></tr>
+<tr><td>183</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>ZFN-Zofen</td><td>Pizotifen Malate</td></tr>
+<tr><td>184</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>ZFS-Zofen TS</td><td>Pizotifen Malate</td></tr>
+<tr><td>185</td><td>PHR-PHARMA</td><td>013-Antipsychotics</td><td>ZNN-Zincin</td><td>Cinnarizine</td></tr>
+<tr><td>186</td><td>PHR-PHARMA</td><td>014-Antiscabies</td><td>ATX-Arotrix</td><td>Permethrin</td></tr>
+<tr><td>187</td><td>PHR-PHARMA</td><td>015-Antiseptics</td><td>ARN-Arodin</td><td>Povidone-Iodine</td></tr>
+<tr><td>188</td><td>PHR-PHARMA</td><td>015-Antiseptics</td><td>XSL-Xisol</td><td>Chlorhexidine Gluconate + Isopropyl Alcohol</td></tr>
+<tr><td>189</td><td>PHR-PHARMA</td><td>016-Antispasmodics</td><td>VRN-Veralgin</td><td>Tiemonium Methyl Sulphate</td></tr>
+<tr><td>190</td><td>PHR-PHARMA</td><td>017-Major Antiulcerants</td><td>CAN-Canalia</td><td>Dexlansoprazole</td></tr>
+<tr><td>191</td><td>PHR-PHARMA</td><td>017-Major Antiulcerants</td><td>EMP-Emep</td><td>Esomeprazole</td></tr>
+<tr><td>192</td><td>PHR-PHARMA</td><td>017-Major Antiulcerants</td><td>OMP-Omep</td><td>Omeprazole</td></tr>
+<tr><td>193</td><td>PHR-PHARMA</td><td>017-Major Antiulcerants</td><td>RBE-Rabe</td><td>Rabeprazole</td></tr>
+<tr><td>194</td><td>PHR-PHARMA</td><td>017-Major Antiulcerants</td><td>PRP-Proton-P</td><td>Pantoprazole</td></tr>
+<tr><td>195</td><td>PHR-PHARMA</td><td>017-Major Antiulcerants</td><td>VNF-Vonofix</td><td>Vonoprazan</td></tr>
+<tr><td>196</td><td>PHR-PHARMA</td><td>018-Antivirals</td><td>ACR-Acyvir</td><td>Acyclovir</td></tr>
+<tr><td>197</td><td>PHR-PHARMA</td><td>018-Antivirals</td><td>COF-Corofree</td><td>Hydroxychloroquine Sulphate</td></tr>
+<tr><td>198</td><td>PHR-PHARMA</td><td>018-Antivirals</td><td>DLR-Dualvir </td><td>Ledipasvir + Sofosbuvir</td></tr>
+<tr><td>199</td><td>PHR-PHARMA</td><td>018-Antivirals</td><td>IVN-Ivactin</td><td>Ivermectin</td></tr>
+<tr><td>200</td><td>PHR-PHARMA</td><td>018-Antivirals</td><td>TCR-Tecavir</td><td>Entecavir</td></tr>
+<tr><td>201</td><td>PHR-PHARMA</td><td>018-Antivirals</td><td>TNA-Tenvira</td><td>Tenofovir Disoproxil Fumarate</td></tr>
+<tr><td>202</td><td>PHR-PHARMA</td><td>020-Other Antitussive</td><td>ASL-Asmolex-L</td><td>Levosalbutamol</td></tr>
+<tr><td>203</td><td>PHR-PHARMA</td><td>020-Other Antitussive</td><td>ASX-Asmolex</td><td>Salbutamol Sulfate</td></tr>
+<tr><td>204</td><td>PHR-PHARMA</td><td>020-Other Antitussive</td><td>CTE-Contine</td><td>Theophylline</td></tr>
+<tr><td>205</td><td>PHR-PHARMA</td><td>020-Other Antitussive</td><td>EXO-Expecto</td><td>Bromhexine</td></tr>
+<tr><td>206</td><td>PHR-PHARMA</td><td>020-Other Antitussive</td><td>FRF-Freecof</td><td>Dextromethorphan+Pseudoephedrine+Triprolidine</td></tr>
+<tr><td>207</td><td>PHR-PHARMA</td><td>020-Other Antitussive</td><td>MCT-Miracit</td><td>Butamirate Citrate</td></tr>
+<tr><td>208</td><td>PHR-PHARMA</td><td>020-Other Antitussive</td><td>NXL-Nexol</td><td>Ambroxol</td></tr>
+<tr><td>209</td><td>PHR-PHARMA</td><td>022-DMARD</td><td>ARB-Arthanib</td><td>Tofacitinib</td></tr>
+<tr><td>210</td><td>PHR-PHARMA</td><td>022-DMARD</td><td>RMN-Reumazin</td><td>Sulfasalazine</td></tr>
+<tr><td>211</td><td>PHR-PHARMA</td><td>023-Ear Drops</td><td>ADC-Audicare</td><td>Beclometasone Dipropionate+Clotrimazole+Lidocaine Hydrochlorid+Ofloxacin</td></tr>
+<tr><td>212</td><td>PHR-PHARMA</td><td>023-Ear Drops</td><td>FLL-Flumetanol</td><td>Flumetasone Pivalate +Clioquinol</td></tr>
+<tr><td>213</td><td>PHR-PHARMA</td><td>024-Gastroprokinetic</td><td>ALN-Apuldon</td><td>Domperidone</td></tr>
+<tr><td>214</td><td>PHR-PHARMA</td><td>024-Gastroprokinetic</td><td>APS-Apetiz Sus</td><td>Megestrol Acetate (Susp)</td></tr>
+<tr><td>215</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>ARO-Aroflo</td><td>Salmeterol + Fluticasone</td></tr>
+<tr><td>216</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>BDF-Budison F</td><td>Budesonide + Formoterol Fumarate Dihydrate</td></tr>
+<tr><td>217</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>TRO-Triflo Arocap</td><td>Fluticasone Furoate + Umeclidinium + Vilanterol</td></tr>
+<tr><td>218</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>BDN-Budison</td><td>Budesonide</td></tr>
+<tr><td>219</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>IPS-Ipralin Nebuliser</td><td>Ipratropium Bromide + Salbutamol</td></tr>
+<tr><td>220</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>ASN-Asmalin</td><td>Salbutamol</td></tr>
+<tr><td>221</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>BCT-Beclocort</td><td>Beclometasone Dipropionate</td></tr>
+<tr><td>222</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>BDG-Budison FG</td><td>Budesonide+Formoterol+Glycopyrrolate</td></tr>
+<tr><td>223</td><td>PHR-PHARMA</td><td>026-Inhalers</td><td>IPN-Ipralin</td><td>Salbutamol+Ipratropium</td></tr>
+<tr><td>224</td><td>PHR-PHARMA</td><td>027-Lactose Intolerance</td><td>LCM-Laczym</td><td>Lactase USP</td></tr>
+<tr><td>225</td><td>PHR-PHARMA</td><td>028-Laxative</td><td>AVC-Avolac</td><td>Lactulose</td></tr>
+<tr><td>226</td><td>PHR-PHARMA</td><td>029-Muscle Relaxants</td><td>BLN-Beclovan</td><td>Baclofen</td></tr>
+<tr><td>227</td><td>PHR-PHARMA</td><td>029-Muscle Relaxants</td><td>MSX-Musclex</td><td>Tolperisone HCl</td></tr>
+<tr><td>228</td><td>PHR-PHARMA</td><td>030-Nasal Decongestant</td><td>AFN-Afrin</td><td>Oxymetazoline HCl</td></tr>
+<tr><td>229</td><td>PHR-PHARMA</td><td>031-Other Antiasthmatics</td><td>DCA-Docopa</td><td>Doxophylline</td></tr>
+<tr><td>230</td><td>PHR-PHARMA</td><td>031-Other Antiasthmatics</td><td>RPA-Rupa</td><td>Rupatadine</td></tr>
+<tr><td>231</td><td>PHR-PHARMA</td><td>031-Other Antiasthmatics</td><td>FLA-Flutica</td><td>Fluticasone Furoate</td></tr>
+<tr><td>232</td><td>PHR-PHARMA</td><td>031-Other Antiasthmatics</td><td>MNL-Montril</td><td>Montelukast</td></tr>
+<tr><td>233</td><td>PHR-PHARMA</td><td>032-Major NSAIDs</td><td>ORL-Oradol</td><td>Ketorolac</td></tr>
+<tr><td>234</td><td>PHR-PHARMA</td><td>032-Major NSAIDs</td><td>MRN-Mervan</td><td>Aceclofenac</td></tr>
+<tr><td>235</td><td>PHR-PHARMA</td><td>032-Major NSAIDs</td><td>MRR-Mervan SR</td><td>Aceclofenac200</td></tr>
+<tr><td>236</td><td>PHR-PHARMA</td><td>032-Major NSAIDs</td><td>NSO-Neso</td><td>Naproxen + Esomeprazole</td></tr>
+<tr><td>237</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>ARC-Aristobet-CL</td><td>Betamethasone + Clotrimazole</td></tr>
+<tr><td>238</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>ARE-Aristobet</td><td>Betamethasone</td></tr>
+<tr><td>239</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>ARS-Aristocort Plus</td><td>Econazole Nitrate + Triamcinolone Acetonide</td></tr>
+<tr><td>240</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>ARTN-Aristobet-N</td><td>Betamethasone + Neomycin Sulphate</td></tr>
+<tr><td>241</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>AST-Aristocort</td><td>Triamcinolone Acetonide</td></tr>
+<tr><td>242</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>ATM-Aristoderm</td><td>Betamethasone+Clotrimazole+Gentamicin</td></tr>
+<tr><td>243</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>CLA-Clobesol SA</td><td>Clobetasol Propionate + Salicylic Acid</td></tr>
+<tr><td>244</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>CLL-Clobesol</td><td>Clobetasol Propionate</td></tr>
+<tr><td>245</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>FLC-Flutica C</td><td>Fluticasone Propionate</td></tr>
+<tr><td>246</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>FSE-Fusidate</td><td>Fusidic Acid + Hydrocortisone</td></tr>
+<tr><td>247</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>STA-Soneta</td><td>Mometasone Furoate</td></tr>
+<tr><td>248</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>TCN-Triclean</td><td>Fluocinolone + Hydroquinone + Tretinoin</td></tr>
+<tr><td>249</td><td>PHR-PHARMA</td><td>033-Skin Care</td><td>DMN-Dermocin</td><td>Mupirocin</td></tr>
+<tr><td>250</td><td>PHR-PHARMA</td><td>035-Steroid</td><td>CRL-Cortisol</td><td>Prednisolone</td></tr>
+<tr><td>251</td><td>PHR-PHARMA</td><td>035-Steroid</td><td>FCT-Flacort</td><td>Deflazacort</td></tr>
+<tr><td>252</td><td>PHR-PHARMA</td><td>035-Steroid</td><td>SNA-Sonexa</td><td>Dexamethasone Sodium Phosphate</td></tr>
+<tr><td>253</td><td>PHR-PHARMA</td><td>035-Steroid</td><td>CRF-Cortef</td><td>Hydrocortisone</td></tr>
+<tr><td>254</td><td>PHR-PHARMA</td><td>036-Urology</td><td>PSR-Prostanil MR</td><td>Tamsulosin HCl</td></tr>
+<tr><td>255</td><td>PHR-PHARMA</td><td>036-Urology</td><td>SFO-Siloflo</td><td>Silodosin</td></tr>
+<tr><td>256</td><td>PHR-PHARMA</td><td>036-Urology</td><td>SNN-Solifen</td><td>Solifenacin</td></tr>
+<tr><td>257</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>IPR-Ipec Super</td><td>Iron Polymaltose+Folic acid+Zinc+Vit. B Complex</td></tr>
+<tr><td>258</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>ASD-Aristo Kid</td><td>Multivitamin & Multimineral KIDZ</td></tr>
+<tr><td>259</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>IPC-Ipec-Plus</td><td>Iron polymaltose + Folic acid + Zinc</td></tr>
+<tr><td>260</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>NNS-Nine Seas</td><td>Multivitamin Syrup with Cod Liver Oil</td></tr>
+<tr><td>261</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>ORN-Oralzin</td><td>Zinc Sulphate</td></tr>
+<tr><td>262</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>UNX-Uniplex</td><td>Vitamin-B Complex</td></tr>
+<tr><td>263</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>VTI-Vitazin I</td><td>Vitamin B Complex + Zinc+Iron Polymaltose</td></tr>
+<tr><td>264</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>VTN-Vitazin</td><td>Vitamin B Complex + Zinc</td></tr>
+<tr><td>265</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>INR-Inofar</td><td>Iron Sucrose</td></tr>
+<tr><td>266</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>AVL-Arovital</td><td>Multivitamin INJ</td></tr>
+<tr><td>267</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>ALA-Alfa-E</td><td>Vitamin-E</td></tr>
+<tr><td>268</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>ARD-Aristo Gold</td><td>Multivitamin+Multiminerals A-Z</td></tr>
+<tr><td>269</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>ARR-AristoSilver</td><td>Multivitamin+MultimineralA-Z Silver</td></tr>
+<tr><td>270</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>ASM-Aristo Mom</td><td>16 Multivitamin & Multiminerals MOM</td></tr>
+<tr><td>271</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>BLA-Balancia</td><td>Citicoline</td></tr>
+<tr><td>272</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>CLD-Calbon D</td><td>Calcium Carbonate+Vitamin D3</td></tr>
+<tr><td>273</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>CLM-Calbon  M</td><td>Calcium Carbonate + Vitamin D3 + Minerals</td></tr>
+<tr><td>274</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>CLN-Calbon</td><td>Calcium Carbonate</td></tr>
+<tr><td>275</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>CLS-Calbon Plus</td><td>Calcium Carbonate+Vit.D3+Vit.C+Vit.E+Minerals</td></tr>
+<tr><td>276</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>IBN-Ibandron</td><td>Ibandronic Acid</td></tr>
+<tr><td>277</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>MCL-Mecol</td><td>Mecobalamin</td></tr>
+<tr><td>278</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>PFC-PFC</td><td>Pyridoxine + Folic Acid + Cyanocobalamin</td></tr>
+<tr><td>279</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>UNT-Univit B</td><td>Vitamin-B Complex</td></tr>
+<tr><td>280</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>UVT-Univit</td><td>Tranexamic Acid</td></tr>
+<tr><td>281</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>VCT-VC-250</td><td>Vitamin-C</td></tr>
+<tr><td>282</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>VNN-Vinton</td><td>Vinpocetine</td></tr>
+<tr><td>283</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>VTM-Vitace</td><td>Super antioxidant vitamin + Multimineral</td></tr>
+<tr><td>284</td><td>PHR-PHARMA</td><td>037-Other Vitamin & Mineral</td><td>ZNF-ZnF</td><td>Zinc + Folic acid</td></tr>
+<tr><td>285</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>ADX-Aristodox</td><td>Doxycycline</td></tr>
+<tr><td>286</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>ARX-Aristomox</td><td>Amoxicillin</td></tr>
+<tr><td>287</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>CLX-Clinex</td><td>Clindamycin USP</td></tr>
+<tr><td>288</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>EXF-Extracef</td><td>Cefradine</td></tr>
+<tr><td>289</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>STN-Stafoxin</td><td>Flucloxacillin</td></tr>
+<tr><td>290</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>TXL-Taxetil</td><td>Cefpodoxime Proxetil</td></tr>
+<tr><td>291</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>CNS-Clinex Plus</td><td>Clindamycin + Tretinoin</td></tr>
+<tr><td>292</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>SLN-Silvadazin</td><td>Silver Sulfadiazine</td></tr>
+<tr><td>293</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>AMN-A-Mycin</td><td>Erythromycin</td></tr>
+<tr><td>294</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>DPL-Diprosal</td><td>Betamethasone Dipropionate + alicylic Acid</td></tr>
+<tr><td>295</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>APN-Aprocin</td><td>Ciprofloxacin</td></tr>
+<tr><td>296</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>MKN-Mikacin</td><td>Amikacin Sulfate</td></tr>
+<tr><td>297</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>CFM-Ceftazim</td><td>Ceftazidime Pentahydrate</td></tr>
+<tr><td>298</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>FGN-Forgen</td><td>Cefepime</td></tr>
+<tr><td>299</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>GYN-Gynoxin</td><td>Neomycin+Polymyxin B+ Nystatin+ Metronidazole</td></tr>
+<tr><td>300</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>ALD-Alexid</td><td>Pivmecillinam</td></tr>
+<tr><td>301</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>HPN-Hepaximin</td><td>Rifaximin</td></tr>
+<tr><td>302</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>LMX-Lomeflox</td><td>Lomefloxacin HCl</td></tr>
+<tr><td>303</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>OMX-Omniflox</td><td>Sparfloxacin</td></tr>
+<tr><td>304</td><td>PHR-PHARMA</td><td>040-Other Antibiotics</td><td>OVL-Ovel</td><td>Levofloxacin</td></tr>
+<tr><td>305</td><td>PHR-PHARMA</td><td>041-Other Antiulcerants</td><td>ACN-Ariscon</td><td>Sodium Alginate + Sodium Bicarbonate + Calcium Carbonate</td></tr>
+<tr><td>306</td><td>PHR-PHARMA</td><td>041-Other Antiulcerants</td><td>MCN-Maxicon</td><td>Magaldrate+Simethicone</td></tr>
+<tr><td>307</td><td>PHR-PHARMA</td><td>041-Other Antiulcerants</td><td>LMN-Lumeran</td><td>Ranitidine HCl</td></tr>
+<tr><td>308</td><td>PHR-PHARMA</td><td>042-Coral Calcium</td><td>FSD-FossicalD</td><td>Calcium (derived from coral fossil)+ Vitamin D3</td></tr>
+<tr><td>309</td><td>PHR-PHARMA</td><td>042-Coral Calcium</td><td>FSX-Fossical DX</td><td>Calcium 600 (derived from coral fossil)+ Vitamin D3 400</td></tr>
+<tr><td>310</td><td>PHR-PHARMA</td><td>043-Vit B1+B6+B12</td><td>NBN-Neobion</td><td>Vitamin B1+B6+B12</td></tr>
+<tr><td>311</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>ERN-Erdon</td><td>Diclofenac Sodium</td></tr>
+<tr><td>312</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>NVN-Neurovan</td><td>Pregabalin</td></tr>
+<tr><td>313</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>RMP-Reumacap</td><td>Indomethacin</td></tr>
+<tr><td>314</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>XPA-Xpa</td><td>Paracetamol</td></tr>
+<tr><td>315</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>RMD-Reumacid</td><td>Indomethacin</td></tr>
+<tr><td>316</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>ETN-Etovan</td><td>Etoricoxib</td></tr>
+<tr><td>317</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>MST-Mesagut</td><td>Mesalazine</td></tr>
+<tr><td>318</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>NPO-Napro</td><td>Naproxen</td></tr>
+<tr><td>319</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>RJD-Rejoin-D</td><td>Diacerein + Glucosamine Sulphate</td></tr>
+<tr><td>320</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>RJN-Rejoin</td><td>Glucosamine Sulphate+Chondroitin Sulphate</td></tr>
+<tr><td>321</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>XCL-Xicotil</td><td>Tenoxicam</td></tr>
+<tr><td>322</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>XPC-Xpa-C</td><td>Paracetamol + Caffeine</td></tr>
+<tr><td>323</td><td>PHR-PHARMA</td><td>044-Other NSAID & Painkillers</td><td>XPR-Xpa XR</td><td>Paracetamol665</td></tr>
+<tr><td>324</td><td>PHR-PHARMA</td><td>047-Vitamin D3 Injection</td><td>ATD-Aristo D3</td><td>Cholecalciferol (Vit. D3)</td></tr>
+<tr><td>325</td><td>PHR-PHARMA</td><td>048-Anesthetic</td><td>LCE-Locaine</td><td>Lidocaine Hydrochloride</td></tr>
+<tr><td>326</td><td>PHR-PHARMA</td><td>050-Alimentary Tract & Metabolism</td><td>LVC-Livcare</td><td>Obeticholic Acid</td></tr>
+<tr><td>327</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>ANG-Anseng</td><td>Panax ginseng</td></tr>
+<tr><td>328</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>ARU-Arulina</td><td>Spirulina</td></tr>
+<tr><td>329</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>GBC-Goodbac-3S</td><td>Bifidobacterium bifidum + Fructo-Oligosaccharide + Lactobacillus Acidophillus + Lactobacillus Bulgaricus</td></tr>
+<tr><td>330</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>GNG-Ginkgo-B</td><td>Ginkgo Biloba</td></tr>
+<tr><td>331</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>GSB-Goodbac-SB</td><td>Saccharomyces Boulardi</td></tr>
+<tr><td>332</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>HPA-Hepamarin</td><td>Silymarin</td></tr>
+<tr><td>333</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>JNX-Joinflex</td><td>Native Type II Collagen</td></tr>
+<tr><td>334</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>PRL-Primrole</td><td>Evening Primrose Oil</td></tr>
+<tr><td>335</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>FBL-Fibosyl</td><td>Ispaghula Husk</td></tr>
+<tr><td>336</td><td>PHR-PHARMA</td><td>051-Herbal</td><td>FBS-Fibosyl-S</td><td>Ispaghula Husk + Senna</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("productTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[3]; // Index 3 corresponds to the "Brand" column
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

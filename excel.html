@@ -1,0 +1,241 @@
+
+
+<html>
+
+<head>
+    <title>Excel Tutorial</title>
+</head>
+
+<body>
+<p><center> <b>INDEX</b></center></p>
+<! cellspacing>
+<table border="2" cellpadding="1">
+<thead>
+<tr> <th>Serial</th><th>CategoryName</th><th>Laws</th></tr>
+</thead>
+<tbody>
+
+<tr><td>1</td><td>How to SUM Ignore N/A in Excel</td><td>A: Sum without #n/a: =SUMIF(A2:C6,"<>#n/a") + Enter key
+////B: Sum with #n/a: =SUM(IF(ISNA(A2:C6),0,A2:C6)) + Ctrl + Shift + Enter keys together.</td></tr>
+<!------------------------------------------------>
+
+<tr><td>2</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+<!---------------------------------------->
+<tr><td>3</td><td>How to use sort,today, letxlookup, indexmatch,concat, concatenate,count in Excel</td><td>=SORT(L8:L107)
+=TODAY()-1
+=LET(lv,XLOOKUP(N5,'D:\Download File\Oct-23\[112.xlsx]Sheet1'!$E:$E,'D:\Download File\Oct-23\[112.xlsx]Sheet1'!$D:$D),IF(lv="","",lv))
+=INDEX('D:\Download File\Oct-23\[112.xlsx]Sheet1 (2)'!$G$2:$G$422,MATCH(M5,'D:\Download File\Oct-23\[112.xlsx]Sheet1 (2)'!$E$2:$E$422,0))
+=CONCAT(L5,"0-P")
+=CONCATENATE(L3," (",L4,")")
+=COUNT(K7:K1048576)
+=CONCATENATE(P10," (A+B)")
+=LET(lv,XLOOKUP(P8,'D:\Download File\Oct-23\[112.xlsx]Sheet1'!$E:$E,'D:\Download File\Oct-23\[112.xlsx]Sheet1'!$D:$D),IF(lv="","",lv))
+=CONCATENATE("> ",Q8,", ","ID-",R8,", Tr.Code: ",P8)
+=CONCAT(P12,"B")
+LET(lv,XLOOKUP(C4,'Master (2)'!$G:$G,'Master (2)'!$C:$C),IF(lv="","",lv))</td></tr>
+<!--------------------------------------------------------->
+<tr><td>4</td><td>How to hide data in Excel</td><td>select data >ctrl+1> custom> general delete write ;;;>ok=hide
+select data >ctrl+1> custom> general delete remove ;;;>ok=show</td></tr>
+
+<!-------------------------------------------------------------->
+<tr><td>5</td><td>How to merge data in Excel</td><td>=VSTACK('[Pharma Master Nov-23 - Copy.xlsx]DINAJPUR:GULSHAN'!$A$1:$H$200)</td></tr>
+<!----------------------------------------------------------->
+<tr><td>6</td><td>How to merge data in Excel</td><td>Sub CopyFromWorksheets() 
+    Dim wrk As Workbook 'Workbook object - Always good to work with object variables
+    Dim sht As Worksheet 'Object for handling worksheets in loop
+    Dim trg As Worksheet 'Master Worksheet
+    Dim rng As Range 'Range object
+    Dim colCount As Integer 'Column count in tables in the worksheets
+     
+    Set wrk = ActiveWorkbook 'Working in active workbook
+     
+    For Each sht In wrk.Worksheets 
+        If sht.Name = "Master" Then 
+            MsgBox "There is a worksheet called as 'Master'." & vbCrLf & _ 
+            "Please remove or rename this worksheet since 'Master' would be" & _ 
+            "the name of the result worksheet of this process.", vbOKOnly + vbExclamation, "Error" 
+            Exit Sub 
+        End If 
+    Next sht 
+     
+     'We don't want screen updating
+    Application.ScreenUpdating = False 
+     
+     'Add new worksheet as the last worksheet
+    Set trg = wrk.Worksheets.Add(After:=wrk.Worksheets(wrk.Worksheets.Count)) 
+     'Rename the new worksheet
+    trg.Name = "Master" 
+     'Get column headers from the first worksheet
+     'Column count first
+    Set sht = wrk.Worksheets(1) 
+    colCount = sht.Cells(1, 255).End(xlToLeft).Column 
+     'Now retrieve headers, no copy&paste needed
+    With trg.Cells(1, 1).Resize(1, colCount) 
+        .Value = sht.Cells(1, 1).Resize(1, colCount).Value 
+         'Set font as bold
+        .Font.Bold = True 
+    End With 
+     
+     'We can start loop
+    For Each sht In wrk.Worksheets 
+         'If worksheet in loop is the last one, stop execution (it is Master worksheet)
+        If sht.Index = wrk.Worksheets.Count Then 
+            Exit For 
+        End If 
+         'Data range in worksheet - starts from second row as first rows are the header rows in all worksheets
+        Set rng = sht.Range(sht.Cells(2, 1), sht.Cells(65536, 1).End(xlUp).Resize(, colCount)) 
+         'Put data into the Master worksheet
+        trg.Cells(65536, 1).End(xlUp).Offset(1).Resize(rng.Rows.Count, rng.Columns.Count).Value = rng.Value 
+    Next sht 
+     'Fit the columns in Master worksheet
+    trg.Columns.AutoFit 
+     
+     'Screen updating should be activated
+    Application.ScreenUpdating = True 
+End Sub </td></tr>
+<!----------------------------------------------------------->
+<tr><td>7</td><td>How to merge data in Excel</td><td>Sub GetSheets()
+'Update ExcelJunction.com
+Path = ""
+Filename = Dir (Path & "*.xlsx")
+Do While Filename<>""
+Workbooks.open Filename:= Path & Filename, Readonly:=True
+For Each Sheet In ActiveWorkbook.sheets
+sheet.Copy After:=ThisWorkbook.sheets(1)
+Next Sheet
+Workbooks(Filename).Close
+Filename = Dir()
+Loop
+End Sub</td></tr>
+<!--------------------------------------------------->
+<tr><td>8</td><td>How to serial auto in Excel</td><td>=subtotal(3,B$2:B2)
+=IF(ISBLANK(B2),"",COUNTA($B$2:B2))</td></tr>
+<!--------------------------------------------------->
+<tr><td>9</td><td>How to search specific text and count in Excel</td><td>=SUM(LEN(B2:B49)-LEN(SUBSTITUTE(B2:B49,"Ancor","")))/LEN("Ancor")
+
+=COUNT(SEARCH("ancor",$B$1:$B$100))
+
+=SUMPRODUCT(H10:H2700*(ISNUMBER(SEARCH(K10,G10:G2700))))</td></tr>
+<!--------------------------------------------------->
+<tr><td>10</td><td>Age Calculation</td><td>=DATEDIF(A2,$B$2,"Y")&" Years, "&DATEDIF(A2,$B$2,"YM")&" Months, "&DATEDIF(A2,$B$2,"MD")&" Days"</td></tr>
+<!------------------------------------------------------------>
+<tr><td>11</td><td> Word Separte in Excel</td><td> 1st Word:  =LEFT(B5,SEARCH(" ",B5,1))
+  2nd Word:  =RIGHT(B5,LEN(B5)-SEARCH(" ",B5,1))</td></tr>
+<!----------------------------------------------------------->
+<tr><td>12</td><td>To Count Specific word</td><td>=(LEN(A2)-LEN(SUBSTITUTE(A2,C2,"")))/LEN(C2)</td></tr>
+<!---------------------------------------------------->
+<tr><td>13</td><td>To get automatic serial number</td><td>=SUBTOTAL(3,B1:B$1)</td></tr>
+<!--------------------------------------------------------------------->
+<tr><td>14</td><td>depot name-01</td><td>=IF(LEFT(B2,2)="PA","Paltan",IF(LEFT(B2,2)="DH","Dhanmondi",IF(LEFT(B2,2)="UT","Uttara",IF(LEFT(B2,2)="NA","Narayanganj",IF(LEFT(B2,2)="MY","Mymensingh",IF(LEFT(B2,2)="CH","Chattagram",IF(LEFT(B2,2)="SY","Sylhet",IF(LEFT(B2,2)="CU","Cumilla",IF(LEFT(B2,2)="NO","Noakhali",IF(LEFT(B2,2)="FE","Feni",IF(LEFT(B2,2)="BO","Bogura",IF(LEFT(B2,2)="RA","Rajshahi",IF(LEFT(B2,2)="RN","Rangpur",IF(LEFT(B2,2)="DI","Dinajpur",IF(LEFT(B2,2)="JA","Jashore",IF(LEFT(B2,2)="KH","Khulna",IF(LEFT(B2,2)="BA","Barishal",IF(LEFT(B2,2)="FA","Faridpur",IF(LEFT(B2,2)="CO","Cox’s Bazar",IF(LEFT(B2,2)="TA","Tangail",IF(LEFT(B2,2)="PB","Pabna",IF(LEFT(B2,2)="CA","Chandpur",IF(LEFT(B2,2)="BB","B.Baria",IF(LEFT(B2,2)="MO","Moulvibazar",IF(LEFT(B2,2)="KI","Kishoregonj",IF(LEFT(B2,2)="KU","Kushtia",IF(LEFT(B2,2)="KE","Keraniganj")))))))))))))))))))))))))))
+</td></tr>
+<!------------------------------------------------------------------->
+<tr><td>15</td><td>depot name-02</td><td>=IF(LEFT(B2,2)="PA","Paltan",IF(LEFT(B2,2)="DH","Dhanmondi",IF(LEFT(B2,2)="UT","Uttara",IF(LEFT(B2,2)="NA","Narayangonj",IF(LEFT(B2,2)="MY","Mymensingh",IF(LEFT(B2,2)="CH","Chattogram",IF(LEFT(B2,2)="SY","Sylhet",IF(LEFT(B2,2)="CU","Cumilla",IF(LEFT(B2,2)="NO","Noakhali",IF(LEFT(B2,2)="FE","Feni",IF(LEFT(B2,2)="BO","Bogura",IF(LEFT(B2,2)="RA","Rajshahi",IF(LEFT(B2,2)="RN","Rangpur",IF(LEFT(B2,2)="DI","Dinajpur",IF(LEFT(B2,2)="JA","Jashore",IF(LEFT(B2,2)="KH","Khulna",IF(LEFT(B2,2)="BA","Barishal",IF(LEFT(B2,2)="FA","Faridpur",IF(LEFT(B2,2)="CO","Cox’s Bazar",IF(LEFT(B2,2)="TA","Tangail",IF(LEFT(B2,2)="PB","Pabna",IF(LEFT(B2,2)="CA","Chandpur",IF(LEFT(B2,2)="BB","B.Baria",IF(LEFT(B2,2)="MO","Moulvibazar",IF(LEFT(B2,2)="KI","Kishoregonj",IF(LEFT(B2,2)="KU","Kushtia",IF(LEFT(B2,2)="KE","Keraniganj")))))))))))))))))))))))))))</td></tr>
+<!---------------------------------------------------------------------->
+<tr><td>16</td><td>Specific word seperation</td><td>=LEFT(A2, SEARCH(" ",A2,1))
+      Split string by comma, colon, slash, dash or other delimiter
+     =LEFT(A2, SEARCH("-",A2,1)-1)
+    Example name
+
+    Description
+    
+    Jeff Smith
+    No middle name
+
+     Formula
+     Result (first name)
+
+     '=LEFT(A2, SEARCH(" ",A2,1))
+      =LEFT(A2, SEARCH(" ",A2,1))
+
+     Formula
+     Result (last name)
+     '=RIGHT(A2,LEN(A2)-SEARCH(" ",A2,1))
+     =RIGHT(A2,LEN(A2)-SEARCH(" ",A2,1))</td></tr>
+
+<!------------------------------------------------------------->
+<tr><td>17</td><td>TexJoin Formula for Multiple Column values join with coma or anyother symble</td><td> =TEXTJOIN(", ", TRUE, A2:A8)</td></tr>
+<!-------------------------------------------------------------->
+<tr><td>18</td><td>Formula to Count the Number of Occurrences of a Text String in a Range</td><td>=SUM(LEN(range)-LEN(SUBSTITUTE(range,"text","")))/LEN("text")</td></tr>
+<!----------------------------------------------------------------->
+<tr><td>19</td><td>Formula to Count the Number of Occurrences of a Single Character in One Cell</td><td>	=LEN(cell_ref)-LEN(SUBSTITUTE(cell_ref,"a",""))
+	
+	=LEN(G2)-LEN(SUBSTITUTE(G2,",",""))</td></tr>
+<!------------------------------------------------------------->
+
+<tr><td>20</td><td>Formula to Count the Number of Words Separated by a Character in a Cell</td><td>	=IF(LEN(TRIM(cell_ref))=0,0,LEN(cell_ref)-LEN(SUBSTITUTE(cell_ref,char,""))+1)
+      =IF(LEN(TRIM(Q10))=0,0,LEN(Q10)-LEN(SUBSTITUTE(Q10," ",""))+1)</td></tr>
+
+<!---------------------------------------------------------->
+<tr><td>21</td><td>Counting the Number of Words Separated by a Space in a Cell</td><td>=IF(LEN(TRIM(A1))=0,0,LEN(TRIM(A1))-LEN(SUBSTITUTE(A1," ",""))+1)</td></tr>
+<!----------------------------------------------------->
+
+<tr><td>22</td><td>Count the Number of Occurrences</td><td>      A8: =SUM(LEN(A2:A7)-LEN(SUBSTITUTE(A2:A7,"apple","")))/LEN("apple")
+      A9: =LEN(A7)-LEN(SUBSTITUTE(A7,"p",""))
+      10: =SUM(LEN(A2:A7)-LEN(SUBSTITUTE(A2:A7,"p","")))</td></tr>
+
+<!-------------------------------------------------------------------->
+<tr><td>23</td><td>Count of start time & end time</td><td>=COUNTIFS(B2:B345,">=9:01",B2:B345,"<=23:59")</td></tr>
+
+
+<tr><td>24</td><td>How to use TEXTJOIN in Excel</td><td>TEXTJOIN("; ",TRUE,IF((C2:KG2<>0),$C$1:$KG$1&"-"&C2:KG2,""))</td></tr>
+<!-------------------------------------------------------------------------->
+
+<tr><td>25</td><td>Name of Formula ShortCutKey Description</td><td>---Series	ALT+H+FI+S	Series of Serial with Limit set
+---Flash fill	ALT+A+F+F	First Name seperation 
+---Age Calculation	Datedif(a2,today(),"Y")&"Years Old"	
+---Seperation of any word	CLT+E	write the word of a row then select the given word & all blank row in the same collumn
+--Auto Serial 	SEQUENCE(COUNTA(B:B))	For Auto Serial
+---Counting the specific word	A8: =SUM(LEN(A2:A7)-LEN(SUBSTITUTE(A2:A7,"apple","")))/LEN("apple")	Counting the Number of Occurrences of a Text String in a Range
+	---A9: =LEN(A7)-LEN(SUBSTITUTE(A7,"p",""))	Counting the Number of Occurrences of a Character in One Cell
+	---10: =SUM(LEN(A2:A7)-LEN(SUBSTITUTE(A2:A7,"p","")))	
+---TextSplit Total	sum(--(TEXTSPLIT(B4,",")))	sum of numeric value with comma seperated by Split Total
+---Lambda Total	MAP(B4:B6,LAMBDA(x,SUM(--(TEXTSPLIT(x,",")))))	Sum of numeric value with comma seperated by Lambda Total</td></tr>
+
+<!----------------------------------------------->
+<tr><td>26</td><td>How to use TEXTJOIN & CONCATENATE  in Excel</td><td>=TEXTJOIN(", ",TRUE,L11:BA11) &  =CONCATENATE(L9,"(",L10,")")</td></tr>
+
+<tr><td>27</td><td>Text & Remove Zero Value</td><td>=TEXTJOIN(";",TRUE,IF((P8:AI8<>0),$P$7:$AI$7&" "&P8:AI8,""))</td></tr>
+
+<tr><td>28</td><td>How to use SUMPRODUCT in Excel</td><td>=SUMPRODUCT($E$8:$E$50001*($D$8:$D$50001=P$2)*($A$8:$A$50001=$J8))</td></tr>
+
+<tr><td>29</td><td>How to use Count & Search in Excel</td><td>=COUNT(SEARCH(S6,$O$5:$O$2161)*SEARCH("-A",$N$5:$N$2161))   &    =COUNT(SEARCH(J13,$E$2:$E$10154))</td></tr>
+
+<tr><td>30</td><td>How to use IFNA & INDEX & MATCH in Excel</td><td>=IFNA(INDEX('sheet1 '!$G$10:$G$1048576,MATCH(1,($C7='sheet1 '!$M$10:$M$1048576)*($F$5='sheet1 '!$N$10:$N$1048576),0)),"")</td></tr>
+
+<tr><td>31</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+<tr><td>32</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+<tr><td>33</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+<tr><td>34</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+<tr><td>35</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+<tr><td>36</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+<tr><td>37</td><td>How to use count & search in Excel</td><td>=COUNT(SEARCH("-B",$G1:$G5000))</td></tr>
+
+</tbody>
+</table>
+
+<!------------1----------->    
+<div class="code">
+<h1> 1. Excel Basic Code </h1>
+        <xmp>
+            <!DOCTYPE html>
+            <html>
+
+            <head>
+                <title>HTML Tutorial</title>
+            </head>
+
+            <body>
+                This is a simple HTML page
+            </body>
+
+            </html>
+        </xmp>
+    
+</div>
+
+
+    
+
+</body>
+
+</html>
